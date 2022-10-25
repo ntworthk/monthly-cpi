@@ -1,0 +1,130 @@
+---
+title: "New monthly CPI indicator released for Australia"
+author: "Nick Twort"
+format: html
+execute: 
+  echo: false
+  warning: false
+---
+
+## Introduction
+
+On 26 October 2022, the Australian Bureau of Statistics (ABS) commenced publication of a new monthly Consumer Price Index (CPI) indicator for Australia.^[ABS, *Introducing a monthly Consumer Price Index (CPI) indicator for Australia*, Information paper, 16 August 2022.] This indicator complements the existing quarterly CPI indicator (which will remain the key measure of inflation in Australia).
+
+Prior to this release, Australia and New Zealand were the only two OECD countries that did not produce a monthly CPI indicator, and Australia was the only G20 country not to do so.
+
+This article sets out some background to the CPI and dives briefly into the first release of the monthly indicators.
+
+## Background
+
+The CPI measures changes in the price of a basket of goods and services purchased by a typical household.^[ABS, *Consumer Price Index, Australia methodology*, 27 July 2022.] The basket of goods and services is selected to cover a wide range of goods and services purchased by households, including food, clothing, housing, furnishings, health and transport.^[There are 11 groups in the basket for Australia: food and non-alcoholic beverages; alcohol and tobacco; clothing and footwear; housing; furninshings, household equipment and services; health; transport; communication; recreation and culture; education; and insurance and financial services.]
+
+The CPI is commonly used as a measure of household inflation, which is a sustained increase in the general price level in an economy, and is used to assist government economists in conducting montetary policy, with the Reserve Bank targeting an explicit medium-term inflationary target measured by the CPI.
+
+### Basket of goods and services
+
+The ABS selects a limited sample of goods and services bought by households. The limited sample is intended to have price movements that are representative of a much wider range of goods and services. The ABS groups price measurements of individual goods or services (such as, say, a 420g tin of baked beans) into 'elementary aggregates', containing serveral price measurements for a particular good or service. These are grouped further into 'expenditure classes' of similar goods or services (such as vegetables), 'sub-groups' (such as fruit and vegetables) and 'groups' (food and non-alcoholic beverages).
+
+The current groups, sub-groups and expenditure classes are set out below.
+
+
+```{r}
+
+library(tidyverse)
+library(collapsibleTree)
+library(here)
+
+df <- read_csv(here("data/raw/cpi_weights.csv"))
+
+df <- df |>
+  fill(group, sub_group) |>
+  filter(!is.na(expenditure_classes)) |> 
+  mutate(group = str_to_sentence(group))
+
+collapsibleTree(df, c("group", "sub_group", "expenditure_classes"), root = "All groups", linkLength = 200, fontSize = 12)
+
+
+```
+
+
+In order to progress from individual price measurements of one good or service to aggregate price movements, the measurements need to be 'weighted' to ensure the overall basket reasonably represents a household's expenditure. In Australia, weights are derived from the Household Expenditure Survey (HES), which is a sample of around 8,000 households who record their expenditure over a two-week period.^[The HES is adjusted to account for under reporting of some commodities and a recall adjustment. The HES is also supplemented by additional sources.]
+
+### Price measurements
+
+The ABS collects prices using three main methods:^[ABS, *Consumer Price Index: concepts, sources and methods*, Price collection procedures.]
+
+- personal visits;
+- online and telephone collection; and
+- scanner, transactions and other data.
+
+The frequency of price collection varies across different basket items. Some items are measured only once a year, especially when these prices are known to adjust only at that frequency, such as council rates. Other items are measured much more frequently.
+
+It has historically been very resource intensive to collect frequent prices. However, the increased availability and use of scanner data and automated web-scraping techniques have allowed for higher-frequency collection at a lower cost than personal or telephone data collection.^[See, for example: ABS, *Making greater use of transactions data to compile the Consumer Price Index, Australia*, Information paper, 29 November 2016.]
+
+The ABS has recently acquired a monthly data series for rental price information, resulting in it now measuring prices on a monthly basis for 43 per cent of the weight of the CPI basket,^[ABS, *Introducing a monthly Consumer Price Index (CPI) indicator for Australia*, Information paper, 16 August 2022.] and so the ABS' new monthly CPI indicator can represent more-up-to-date prices for between 62 and 73 per cent of the weight of the CPI basked, depending on the month.
+
+## The monthly index
+
+```{r}
+source(here("source/Deeper dive.R")) 
+```
+
+
+@fig-all-groups below shows that the [monthly CPI indicator]{style="color: #008698; font-weight: bold"} tracks closely with the [existing quarterly indicator]{style="color: #232C31; font-weight: bold"}. Inflation for the year to `r monthly_cpi |> pull(date) |> max() |> format("%B %Y")` was:
+
+- `r monthly_cpi |> filter(series_id == "A128478317T") |> tail(1) |> pull(value_ch) |> scales::percent(accuracy = 0.1)`, according to the monthly indicator; and
+- `r monthly_cpi |> filter(series_id == "A2325846C") |> tail(1) |> pull(value_ch) |> scales::percent(accuracy = 0.1)`, according to the quarterly indicator.
+
+
+```{r}
+#| label: fig-all-groups
+#| fig-cap-location: margin
+#| fig-cap: Different measures of household inflation
+#| fig-width: 8
+#| fig-height: 3.5
+
+series <- c("A2325846C", # quarterly all groups, original
+            "A128478317T" # all groups CPI, original
+) 
+
+create_full_chart(series = c("A2325846C", "A128478317T"))
+
+
+```
+
+
+The monthly index shows that the `r lookup_series_name(get_nth_change_yoy())` group increased most over the last year -- by `r monthly_cpi |> filter(series_id == get_nth_change_yoy()) |> filter(date == max(date)) |> pull(value_ch) |> scales::percent(accuracy = 0.1)`, shown in @fig-1.
+
+
+```{r}
+#| label: fig-1
+#| fig-cap-location: margin
+#| fig-cap: !expr paste0(lookup_series_name(get_nth_change_yoy()), " prices")
+#| fig-width: 8
+#| fig-height: 3.5
+
+n <- 1
+individual_chart(get_nth_change_yoy(n), n)
+
+
+```
+
+The `r lookup_series_name(get_nth_change_yoy(2))` group increased the next most -- by `r monthly_cpi |> filter(series_id == get_nth_change_yoy(2)) |> filter(date == max(date)) |> pull(value_ch) |> scales::percent(accuracy = 0.1)` -- see @fig-2.
+
+
+```{r}
+#| label: fig-2
+#| fig-cap-location: margin
+#| fig-cap: !expr paste0(lookup_series_name(get_nth_change_yoy(2)), " prices")
+#| fig-width: 8
+#| fig-height: 3.5
+
+n <- 2
+individual_chart(get_nth_change_yoy(n), n)
+
+
+```
+
+## Conclusion
+
+Although the quarterly CPI series will remain Australia's key measure of inflation, the monthly CPI series will be an important tool for businesses and consumers to track how costs are changing over time -- being published with about a one-month lag. As cost-of-living pressures continue to be at the forefront of Australian households, measuring prices of food, fuel and housing/rent prices monthly could help keep household budgets in check.
