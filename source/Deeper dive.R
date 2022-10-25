@@ -12,8 +12,7 @@ library(directlabels)
 
 #--- Import data ---------------------------------------------------------------
 
-monthly_cpi <- read_abs_local(filenames = "648401 (2).xlsx", path = "C:/Users/nick.twort/Downloads/")
-# monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
+monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
 quarter_cpi <- read_abs_series("A2325846C") |> 
   mutate(series = "Index Numbers ;  All groups CPI (quarterly) ;  Australia ;")
 
