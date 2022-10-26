@@ -12,7 +12,8 @@ library(directlabels)
 
 #--- Import data ---------------------------------------------------------------
 
-monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
+monthly_cpi <- read_abs_local(filenames = "648401.xlsx", path = here::here("data/raw"))
+# monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
 quarter_cpi <- read_abs_series("A2325846C") |> 
   mutate(series = "Index Numbers ;  All groups CPI (quarterly) ;  Australia ;")
 
@@ -61,7 +62,7 @@ create_full_chart <- function(.data = monthly_cpi, title = NULL, subtitle = NULL
       caption = "Source: ABS, chart by Nick Twort"
     ) +
     scale_x_date(expand = expansion(mult = c(0.05, 0.25))) +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+    scale_y_continuous(labels = scales::percent_format(accuracy = 1), expand = expansion(mult = c(0.1, 0.05))) +
     scale_colour_manual(values = hktools::hk_colours, guide = guide_none()) +
     theme_light(base_family = "Lato", base_size = 12) +
     theme(
