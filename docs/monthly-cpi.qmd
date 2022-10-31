@@ -36,11 +36,6 @@ library(here)
 
 df <- read_csv(here("data/raw/cpi_weights.csv"))
 
-df <- df |>
-  fill(group, sub_group) |>
-  filter(!is.na(expenditure_classes)) |> 
-  mutate(group = str_to_sentence(group))
-
 collapsibleTree(df, c("group", "sub_group", "expenditure_classes"), root = "All groups", linkLength = 200, fontSize = 12)
 
 

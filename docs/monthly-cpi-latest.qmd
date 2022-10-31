@@ -1,0 +1,86 @@
+---
+title: "Australia monthly CPI indicator"
+author: "Nick Twort"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+format: html
+execute: 
+  echo: false
+  warning: false
+---
+
+## The monthly index
+
+```{r}
+library(tidyverse)
+library(here)
+library(gt)
+df <- read_csv(here("data/raw/cpi_weights.csv"))
+source(here("source/Deeper dive.R")) 
+```
+
+
+@fig-all-groups below shows that the [monthly CPI indicator]{style="color: #008698; font-weight: bold"} tracks closely with the [existing quarterly indicator]{style="color: #232C31; font-weight: bold"}. Inflation for the year to `r monthly_cpi |> pull(date) |> max() |> format("%B %Y")` was `r monthly_cpi |> filter(series_id == "A128478317T") |> tail(1) |> pull(value_ch) |> scales::percent(accuracy = 0.1)`, according to the monthly indicator.
+
+
+```{r}
+#| label: fig-all-groups
+#| fig-cap-location: margin
+#| fig-cap: Different measures of household inflation
+#| fig-width: 8
+#| fig-height: 3.5
+
+series <- c("A2325846C", # quarterly all groups, original
+            "A128478317T" # all groups CPI, original
+) 
+
+create_full_chart(series = c("A2325846C", "A128478317T"))
+
+
+```
+
+
+The monthly index shows that the `r lookup_series_name(get_nth_change_yoy())` group increased most over the last year -- by `r monthly_cpi |> filter(series_id == get_nth_change_yoy()) |> filter(date == max(date)) |> pull(value_ch) |> scales::percent(accuracy = 0.1)`, shown in @fig-1.
+
+
+```{r}
+#| label: fig-1
+#| fig-cap-location: margin
+#| fig-cap: !expr paste0(lookup_series_name(get_nth_change_yoy()), " prices")
+#| fig-width: 8
+#| fig-height: 3.5
+
+n <- 1
+individual_chart(get_nth_change_yoy(n), n)
+
+
+```
+
+The `r lookup_series_name(get_nth_change_yoy(2))` group increased the next most -- by `r monthly_cpi |> filter(series_id == get_nth_change_yoy(2)) |> filter(date == max(date)) |> pull(value_ch) |> scales::percent(accuracy = 0.1)` -- see @fig-2.
+
+
+```{r}
+#| label: fig-2
+#| fig-cap-location: margin
+#| fig-cap: !expr paste0(lookup_series_name(get_nth_change_yoy(2)), " prices")
+#| fig-width: 8
+#| fig-height: 3.5
+
+n <- 2
+individual_chart(get_nth_change_yoy(n), n)
+
+
+```
+A summary of changes at the group level is show in @tbl-ch below:
+
+```{r}
+#| label: tbl-ch
+#| tbl-cap-location: margin
+#| tbl-cap: CPI change by group
+print_latest_by_group() |> 
+  rename(Group = series_2, `YoY change` = value_ch) |> 
+  gt() |> 
+  fmt_percent(columns = 2, decimals = 1) |> 
+  tab_options(column_labels.background.color = "#232C31")
+
+
+```

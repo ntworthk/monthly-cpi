@@ -12,8 +12,8 @@ library(directlabels)
 
 #--- Import data ---------------------------------------------------------------
 
-monthly_cpi <- read_abs_local(filenames = "648401.xlsx", path = here::here("data/raw"))
-# monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
+# monthly_cpi <- read_abs_local(filenames = "648401.xlsx", path = here::here("data/raw"))
+monthly_cpi <- read_abs(cat_no = "6484.0", tables = "1")
 quarter_cpi <- read_abs_series("A2325846C") |> 
   mutate(series = "Index Numbers ;  All groups CPI (quarterly) ;  Australia ;")
 
@@ -146,5 +146,16 @@ get_nth_change_yoy <- function(n = 1, .data = monthly_cpi) {
 lookup_series_name <- function(series_id, .data = monthly_cpi) {
   
   .data |> filter(series_id == {{series_id}}) |> head(1) |> pull(series_2)
+  
+}
+
+print_latest_by_group <- function(.data = monthly_cpi) {
+  
+  .data |> filter(!is.na(value_ch)) |>
+    filter(series_2 %in% (df |> distinct(group) |> pull(group))) |>
+    filter(series_1 == "Index Numbers") |> 
+    arrange(desc(date), desc(value_ch)) |>
+    filter(date == max(date)) |> 
+    select(series_2, value_ch)
   
 }
