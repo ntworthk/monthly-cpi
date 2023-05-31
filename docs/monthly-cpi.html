@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.649">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -28,8 +33,8 @@ ul.task-list{list-style: none;}
 <link href="monthly-cpi_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="monthly-cpi_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="monthly-cpi_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="monthly-cpi_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<script src="monthly-cpi_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="monthly-cpi_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="monthly-cpi_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <script src="monthly-cpi_files/libs/d3-4.10.2/d3.min.js"></script>
 <link href="monthly-cpi_files/libs/collapsibleTree-0.1.6/collapsibleTree.css" rel="stylesheet">
 <script src="monthly-cpi_files/libs/collapsibleTree-binding-0.1.7/collapsibleTree.js"></script>
@@ -60,6 +65,7 @@ ul.task-list{list-style: none;}
           </div>
   </div>
     
+  
     
   </div>
   
@@ -83,8 +89,8 @@ ul.task-list{list-style: none;}
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-94e11859467df24fa110" style="width:100%;height:464px;" class="collapsibleTree html-widget"></div>
-<script type="application/json" data-for="htmlwidget-94e11859467df24fa110">{"x":{"data":{"name":"All groups","children":[{"name":"Food and non-alcoholic beverages","children":[{"name":"Bread and cereal products","children":[{"name":"Bread"},{"name":"Cakes and biscuits"},{"name":"Breakfast cereals"},{"name":"Other cereal products"}]},{"name":"Meat and seafoods","children":[{"name":"Beef and veal"},{"name":"Pork"},{"name":"Lamb and goat"},{"name":"Poultry"},{"name":"Other meats"},{"name":"Fish and other seafood"}]},{"name":"Dairy and related products","children":[{"name":"Milk"},{"name":"Cheese"},{"name":"Ice cream and other dairy products"}]},{"name":"Fruit and vegetables","children":[{"name":"Fruit"},{"name":"Vegetables"}]},{"name":"Food products n.e.c.","children":[{"name":"Eggs"},{"name":"Jams, honey and spreads"},{"name":"Food additives and condiments"},{"name":"Oils and fats"},{"name":"Snacks and confectionery"},{"name":"Other food products n.e.c."}]},{"name":"Non-alcoholic beverages","children":[{"name":"Coffee, tea and cocoa"},{"name":"Waters, soft drinks and juices"}]},{"name":"Meals out and take away foods","children":[{"name":"Restaurant meals"},{"name":"Take away and fast foods"}]}]},{"name":"Alcohol and tobacco","children":[{"name":"Alcoholic beverages","children":[{"name":"Spirits"},{"name":"Wine"},{"name":"Beer"}]},{"name":"Tobacco","children":[{"name":"Tobacco"}]}]},{"name":"Clothing and footwear","children":[{"name":"Garments","children":[{"name":"Garments for men"},{"name":"Garments for women"},{"name":"Garments for infants and children"}]},{"name":"Footwear","children":[{"name":"Footwear for men"},{"name":"Footwear for women"},{"name":"Footwear for infants and children"}]},{"name":"Accessories and clothing services","children":[{"name":"Accessories"},{"name":"Cleaning, repair and hire of clothing and footwear"}]}]},{"name":"Housing","children":[{"name":"Rents","children":[{"name":"Rents"}]},{"name":"New dwelling purchase by owner-occupiers","children":[{"name":"New dwelling purchase by owner-occupiers"}]},{"name":"Other housing","children":[{"name":"Maintenance and repair of the dwelling"},{"name":"Property rates and charges"}]},{"name":"Utilities","children":[{"name":"Water and sewerage"},{"name":"Electricity"},{"name":"Gas and other household fuels"}]}]},{"name":"Furnishings, household equipment and services","children":[{"name":"Furniture and furnishings","children":[{"name":"Furniture"},{"name":"Carpets and other floor coverings"}]},{"name":"Household textiles","children":[{"name":"Household textiles"}]},{"name":"Household appliances, utensils and tools","children":[{"name":"Major household appliances"},{"name":"Small electric household appliances"},{"name":"Glassware, tableware and household utensils"},{"name":"Tools and equipment for house and garden"}]},{"name":"Non-durable household products","children":[{"name":"Cleaning and maintenance products"},{"name":"Personal care products"},{"name":"Other non-durable household products"}]},{"name":"Domestic and household services","children":[{"name":"Child care"},{"name":"Hairdressing and personal grooming services"},{"name":"Other household services"}]}]},{"name":"Health","children":[{"name":"Medical products, appliances and equipment","children":[{"name":"Pharmaceutical products"},{"name":"Therapeutic appliances and equipment"}]},{"name":"Medical, dental and hospital services","children":[{"name":"Medical and hospital services"},{"name":"Dental services"}]}]},{"name":"Transport","children":[{"name":"Private motoring","children":[{"name":"Motor vehicles"},{"name":"Spare parts and accessories for motor vehicles"},{"name":"Automotive fuel"},{"name":"Maintenance and repair of motor vehicles"},{"name":"Other services in respect of motor vehicles"}]},{"name":"Urban transport fares","children":[{"name":"Urban transport fares"}]}]},{"name":"Communication","children":[{"name":"Communication","children":[{"name":"Postal services"},{"name":"Telecommunication equipment and services"}]}]},{"name":"Recreation and culture","children":[{"name":"Audio, visual and computing equipment and services","children":[{"name":"Audio, visual and computing equipment"},{"name":"Audio, visual and computing media and services"}]},{"name":"Newspapers, books and stationery","children":[{"name":"Books"},{"name":"Newspapers, magazines and stationery"}]},{"name":"Holiday travel and accommodation","children":[{"name":"Domestic holiday travel and accommodation"},{"name":"International holiday travel and accommodation"}]},{"name":"Other recreation, sport and culture","children":[{"name":"Equipment for sports, camping and open-air recreation"},{"name":"Games, toys and hobbies"},{"name":"Pets and related products"},{"name":"Veterinary and other services for pets"},{"name":"Sports participation"},{"name":"Other recreational, sporting and cultural services"}]}]},{"name":"Education","children":[{"name":"Education","children":[{"name":"Preschool and primary education"},{"name":"Secondary education"},{"name":"Tertiary education"}]}]},{"name":"Insurance and financial services","children":[{"name":"Insurance","children":[{"name":"Insurance"}]},{"name":"Financial services","children":[{"name":"Deposit and loan facilities (direct charges)"},{"name":"Other financial services"}]}]}]},"options":{"hierarchy":["group","sub_group","expenditure_classes"],"input":null,"attribute":"leafCount","linkLength":200,"fontSize":12,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":343},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-539c3433b59b0bd88a72" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-539c3433b59b0bd88a72">{"x":{"data":{"name":"All groups","children":[{"name":"Food and non-alcoholic beverages","children":[{"name":"Bread and cereal products","children":[{"name":"Bread"},{"name":"Cakes and biscuits"},{"name":"Breakfast cereals"},{"name":"Other cereal products"}]},{"name":"Meat and seafoods","children":[{"name":"Beef and veal"},{"name":"Pork"},{"name":"Lamb and goat"},{"name":"Poultry"},{"name":"Other meats"},{"name":"Fish and other seafood"}]},{"name":"Dairy and related products","children":[{"name":"Milk"},{"name":"Cheese"},{"name":"Ice cream and other dairy products"}]},{"name":"Fruit and vegetables","children":[{"name":"Fruit"},{"name":"Vegetables"}]},{"name":"Food products n.e.c.","children":[{"name":"Eggs"},{"name":"Jams, honey and spreads"},{"name":"Food additives and condiments"},{"name":"Oils and fats"},{"name":"Snacks and confectionery"},{"name":"Other food products n.e.c."}]},{"name":"Non-alcoholic beverages","children":[{"name":"Coffee, tea and cocoa"},{"name":"Waters, soft drinks and juices"}]},{"name":"Meals out and take away foods","children":[{"name":"Restaurant meals"},{"name":"Take away and fast foods"}]}]},{"name":"Alcohol and tobacco","children":[{"name":"Alcoholic beverages","children":[{"name":"Spirits"},{"name":"Wine"},{"name":"Beer"}]},{"name":"Tobacco","children":[{"name":"Tobacco"}]}]},{"name":"Clothing and footwear","children":[{"name":"Garments","children":[{"name":"Garments for men"},{"name":"Garments for women"},{"name":"Garments for infants and children"}]},{"name":"Footwear","children":[{"name":"Footwear for men"},{"name":"Footwear for women"},{"name":"Footwear for infants and children"}]},{"name":"Accessories and clothing services","children":[{"name":"Accessories"},{"name":"Cleaning, repair and hire of clothing and footwear"}]}]},{"name":"Housing","children":[{"name":"Rents","children":[{"name":"Rents"}]},{"name":"New dwelling purchase by owner-occupiers","children":[{"name":"New dwelling purchase by owner-occupiers"}]},{"name":"Other housing","children":[{"name":"Maintenance and repair of the dwelling"},{"name":"Property rates and charges"}]},{"name":"Utilities","children":[{"name":"Water and sewerage"},{"name":"Electricity"},{"name":"Gas and other household fuels"}]}]},{"name":"Furnishings, household equipment and services","children":[{"name":"Furniture and furnishings","children":[{"name":"Furniture"},{"name":"Carpets and other floor coverings"}]},{"name":"Household textiles","children":[{"name":"Household textiles"}]},{"name":"Household appliances, utensils and tools","children":[{"name":"Major household appliances"},{"name":"Small electric household appliances"},{"name":"Glassware, tableware and household utensils"},{"name":"Tools and equipment for house and garden"}]},{"name":"Non-durable household products","children":[{"name":"Cleaning and maintenance products"},{"name":"Personal care products"},{"name":"Other non-durable household products"}]},{"name":"Domestic and household services","children":[{"name":"Child care"},{"name":"Hairdressing and personal grooming services"},{"name":"Other household services"}]}]},{"name":"Health","children":[{"name":"Medical products, appliances and equipment","children":[{"name":"Pharmaceutical products"},{"name":"Therapeutic appliances and equipment"}]},{"name":"Medical, dental and hospital services","children":[{"name":"Medical and hospital services"},{"name":"Dental services"}]}]},{"name":"Transport","children":[{"name":"Private motoring","children":[{"name":"Motor vehicles"},{"name":"Spare parts and accessories for motor vehicles"},{"name":"Automotive fuel"},{"name":"Maintenance and repair of motor vehicles"},{"name":"Other services in respect of motor vehicles"}]},{"name":"Urban transport fares","children":[{"name":"Urban transport fares"}]}]},{"name":"Communication","children":[{"name":"Communication","children":[{"name":"Postal services"},{"name":"Telecommunication equipment and services"}]}]},{"name":"Recreation and culture","children":[{"name":"Audio, visual and computing equipment and services","children":[{"name":"Audio, visual and computing equipment"},{"name":"Audio, visual and computing media and services"}]},{"name":"Newspapers, books and stationery","children":[{"name":"Books"},{"name":"Newspapers, magazines and stationery"}]},{"name":"Holiday travel and accommodation","children":[{"name":"Domestic holiday travel and accommodation"},{"name":"International holiday travel and accommodation"}]},{"name":"Other recreation, sport and culture","children":[{"name":"Equipment for sports, camping and open-air recreation"},{"name":"Games, toys and hobbies"},{"name":"Pets and related products"},{"name":"Veterinary and other services for pets"},{"name":"Sports participation"},{"name":"Other recreational, sporting and cultural services"}]}]},{"name":"Education","children":[{"name":"Education","children":[{"name":"Preschool and primary education"},{"name":"Secondary education"},{"name":"Tertiary education"}]}]},{"name":"Insurance and financial services","children":[{"name":"Insurance","children":[{"name":"Insurance"}]},{"name":"Financial services","children":[{"name":"Deposit and loan facilities (direct charges)"},{"name":"Other financial services"}]}]}]},"options":{"hierarchy":["group","sub_group","expenditure_classes"],"input":null,"attribute":"leafCount","linkLength":200,"fontSize":12,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":343},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>In order to progress from individual price measurements of one good or service to aggregate price movements, the measurements need to be ‘weighted’ to ensure the overall basket reasonably represents a household’s expenditure. In Australia, weights are derived from the Household Expenditure Survey (HES), which is a sample of around 8,000 households who record their expenditure over a two-week period.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
@@ -107,39 +113,39 @@ ul.task-list{list-style: none;}
 <div class="cell">
 
 </div>
-<p><a href="#fig-all-groups">Figure&nbsp;1</a> below shows that the <span style="color: #008698; font-weight: bold">monthly CPI indicator</span> tracks closely with the <span style="color: #232C31; font-weight: bold">existing quarterly indicator</span>. Inflation for the year to October 2022 was:</p>
+<p><a href="#fig-all-groups">Figure&nbsp;1</a> below shows that the <span style="color: #008698; font-weight: bold">monthly CPI indicator</span> tracks closely with the <span style="color: #232C31; font-weight: bold">existing quarterly indicator</span>. Inflation for the year to April 2023 was:</p>
 <ul>
-<li>6.9%, according to the monthly indicator; and</li>
-<li>7.3%, according to the quarterly indicator.</li>
+<li>6.8%, according to the monthly indicator; and</li>
+<li>7.0%, according to the quarterly indicator.</li>
 </ul>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-all-groups" class="quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="monthly-cpi_files/figure-html/fig-all-groups-1.png" class="img-fluid figure-img" width="768"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption margin-caption">Figure 1: Different measures of household inflation</figcaption><p></p>
+<p></p><figcaption class="figure-caption margin-caption">Figure&nbsp;1: Different measures of household inflation</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The monthly index shows that the Housing group increased most over the last year – by 10.5%, shown in <a href="#fig-1">Figure&nbsp;2</a>.</p>
+<p>The monthly index shows that the Housing group increased most over the last year – by 8.9%, shown in <a href="#fig-1">Figure&nbsp;2</a>.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-1" class="quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="monthly-cpi_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="768"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption margin-caption">Figure 2: Housing prices</figcaption><p></p>
+<p></p><figcaption class="figure-caption margin-caption">Figure&nbsp;2: Housing prices</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The Food and non-alcoholic beverages group increased the next most – by 8.9% – see <a href="#fig-2">Figure&nbsp;3</a>.</p>
+<p>The Food and non-alcoholic beverages group increased the next most – by 7.9% – see <a href="#fig-2">Figure&nbsp;3</a>.</p>
 <div class="cell page-columns page-full">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-2" class="quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="monthly-cpi_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="768"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption margin-caption">Figure 3: Food and non-alcoholic beverages prices</figcaption><p></p>
+<p></p><figcaption class="figure-caption margin-caption">Figure&nbsp;3: Food and non-alcoholic beverages prices</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -151,21 +157,39 @@ ul.task-list{list-style: none;}
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>ABS, <em>Introducing a monthly Consumer Price Index (CPI) indicator for Australia</em>, Information paper, 16 August 2022.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>ABS, <em>Consumer Price Index, Australia methodology</em>, 27 July 2022.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>There are 11 groups in the basket for Australia: food and non-alcoholic beverages; alcohol and tobacco; clothing and footwear; housing; furninshings, household equipment and services; health; transport; communication; recreation and culture; education; and insurance and financial services.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>The HES is adjusted to account for under reporting of some commodities and a recall adjustment. The HES is also supplemented by additional sources.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>ABS, <em>Consumer Price Index: concepts, sources and methods</em>, Price collection procedures.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>See, for example: ABS, <em>Making greater use of transactions data to compile the Consumer Price Index, Australia</em>, Information paper, 29 November 2016.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>ABS, <em>Introducing a monthly Consumer Price Index (CPI) indicator for Australia</em>, Information paper, 16 August 2022.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>ABS, <em>Introducing a monthly Consumer Price Index (CPI) indicator for Australia</em>, Information paper, 16 August 2022.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>ABS, <em>Consumer Price Index, Australia methodology</em>, 27 July 2022.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>There are 11 groups in the basket for Australia: food and non-alcoholic beverages; alcohol and tobacco; clothing and footwear; housing; furninshings, household equipment and services; health; transport; communication; recreation and culture; education; and insurance and financial services.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The HES is adjusted to account for under reporting of some commodities and a recall adjustment. The HES is also supplemented by additional sources.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>ABS, <em>Consumer Price Index: concepts, sources and methods</em>, Price collection procedures.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See, for example: ABS, <em>Making greater use of transactions data to compile the Consumer Price Index, Australia</em>, Information paper, 29 November 2016.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>ABS, <em>Introducing a monthly Consumer Price Index (CPI) indicator for Australia</em>, Information paper, 16 August 2022.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -187,7 +211,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -215,31 +256,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
